@@ -1,0 +1,69 @@
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.footer .iframe{
+    margin-top: 30px;
+    width: 90%;
+    height: 200px;
+}
+.footer .iframe iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.footer .sub{
+    margin-top: 50px;
+}
+.footer button{
+    width: 100%;
+    padding: 10px 20px;
+    color: black;
+    font-weight: 600;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.footer button:hover{
+   background-color: red;
+   color: white;
+   border: none;
+   border-radius: 10px;
+}
+.footer .inner-list{
+    text-align: center;
+    width: 100%;
+}
+.footer .inner-list .list{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+.footer .inner-list .list i{
+    font-size: 20px;
+}
+.footer .app{
+    margin-top: 50px;
+}
+.footer .about{
+    margin-top: 50px;
+}
+.footer .about span{
+    font-size: 20px;
+    font-weight: 600;
+}
+.footer .terms{
+    margin-top: 50px;
+}
+.footer .terms span{
+    font-size: 20px;
+    font-weight: 600;
+}
+

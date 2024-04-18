@@ -1,0 +1,84 @@
+#intro-content {
+ position: relative;
+}
+
+#intro-content h1 {
+  position: absolute;
+  width: 400px;
+  top: 100px;
+  left: 50px;
+  color: white;
+  font-size: 70px;
+}
+
+#intro-content h5 {
+  position: absolute;
+  top: 600px;
+  left: 50px;
+  color: white;
+  font-size: 30px;
+}
+
+#imformation {
+  margin: 100px;
+  text-align: center;
+}
+
+#carouselExampleCaptions {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+#carouselExampleCaptions p {
+  font-size: 20px;
+}
+
+#advise {
+  width: 70%;
+  margin-left: 50px;
+}
+
+#advise * {
+  margin-bottom: 30px;
+}
+
+#advise .btn {
+  padding: 10px;
+}
+
+#advise .row {
+  gap: 30px;
+}
+
+#advise .col {
+  padding: 20px;
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+#contact {
+  margin-top: 30px;
+  padding: 50px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#contact-left {
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 50%;
+}
+
+#contact-left .accordion-item {
+  padding: 10px;
+}
+
+#contact-right {
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 50%;
+}
+
+
+

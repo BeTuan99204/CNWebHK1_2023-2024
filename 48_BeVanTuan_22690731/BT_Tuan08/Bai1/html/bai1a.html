@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <title>Đăng ký tài khoản</title>
+
+    <script>
+        $(document).ready(function() {
+          
+            $('#txtDN').blur(function() {
+                let usernameRegex = /^[a-zA-Z][a-zA-Z0-9]*$/;
+                let username = $('#txtDN').val();
+                let isValid = usernameRegex.test(username);
+                if (!isValid) {
+                    $('#tbUsername').text("Tên đăng nhập không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbUsername').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            $('#txtMK').blur(function() {
+                let password = $('#txtMK').val();
+                let hasNumber = /\d/.test(password);
+                let hasUpper = /[A-Z]/.test(password);
+                let hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+                let isValid = password.length >= 8 && hasNumber && hasUpper && hasSpecial;
+                if (!isValid) {
+                    $('#tbPassword').text("Mật khẩu không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbPassword').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            $('#txtXNMK').blur(function() {
+                let confirmPassword = $('#txtXNMK').val();
+                let password = $('#txtMK').val();
+                if (confirmPassword !== password) {
+                    $('#tbConfirmPassword').text("Mật khẩu không khớp").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbConfirmPassword').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            $('#txtName').blur(function() {
+                let fullNameRegex = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+                let fullName = $('#txtName').val();
+                let isValid = fullNameRegex.test(fullName);
+                if (!isValid) {
+                    $('#tbten').text("Họ tên không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbten').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            $('#txtNgaySinh').on('change', function() {
+                var inputDate = new Date($(this).val());
+                var today = new Date();
+                var age = today.getFullYear() - inputDate.getFullYear();
+                var m = today.getMonth() - inputDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < inputDate.getDate())) {
+                    age--;
+                }
+                if (age < 16) {
+                    $('#NS').text('Ngày sinh không hợp lệ (tuổi phải trên 16)').removeClass('text-success').addClass('text-danger');
+                    $(this).val('');
+                } else {
+                    $('#NS').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            $('#txtDT').blur(function() {
+                let phoneRegex = /^(09|03|07|06|05|04)\d{8}$/;
+                let phoneNumber = $('#txtDT').val();
+                let isValid = phoneRegex.test(phoneNumber);
+                if (!isValid) {
+                    $('#tbSDT').text("Số điện thoại không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbSDT').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+          
+            $('#txtEmail').blur(function() {
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let email = $('#txtEmail').val();
+                let isValid = emailRegex.test(email);
+                if (!isValid) {
+                    $('#tbEmail').text("Email không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#tbEmail').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+          
+        });
+    </script>
+    
+
+</head>
+<body>
+    <div class="col-6 mx-auto mt-3 border border-2">
+        <p class="text-center fs-3 fw-bold py-2">ĐĂNG KÝ TÀI KHOẢN</p>
+        <div class="row m-0 col-12 mx-auto pb-2 border-bottom">
+            <label for="" class="col-3 text-end">Tên đăng nhập:</label>
+            <input type="text" placeholder="txtDN" id="txtDN" class="col-4">
+            <label for="" style="color: red;" class="col-5">*</label>
+            <p id="tbUsername" class="col-12 text-danger"></p> 
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 mt-2 border-bottom">
+            <label for="" class="col-3 text-end">Mật khẩu: </label>
+            <input type="text" placeholder="txtMK" id="txtMK" class="col-4">
+            <label for="" style="color: red;" class="col-5">*</label>
+            <p id="tbPassword" class="col-12 text-danger"></p> 
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 mt-2 border-bottom">
+            <label for="" class="col-3 text-end">Nhập lại mật khẩu:</label>
+            <input type="text" placeholder="txtXNMK" id="txtXNMK" class="col-4">
+            <label for="" style="color: red;" class="col-5">*</label>
+            <p id="tbConfirmPassword" class="col-12 text-danger"></p> 
+        </div>
+        <p class="text-center fw-bold py-4">THÔNG TIN CÁ NHÂN</p>
+        <div class="row m-0 col-12 mx-auto pb-2 border-bottom">
+            <label for="" class="col-3 text-end">Họ và tên:</label>
+            <input type="text" placeholder="txtName" id="txtName" class="col-4">
+            <label for="" style="color: red;" class="col-5">* bắt buộc</label>
+            <p id="tbten" class="col-12 text-danger"></p>
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 mt-2 border-bottom">
+            <label for="" class="col-3 text-end">Ngày sinh:</label>
+            <input type="date" placeholder="txtNgaySinh" id="txtNgaySinh" class="col-2">
+            <p id="NS" class="col-12 text-danger"></p> 
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 mt-2 border-bottom">
+            <label for="" class="col-3 text-end">Giới tính: </label>
+            <div class="col-4">
+                <input type="radio" id="radNam" name="gioiTinh" value="Nam" checked>
+                <label for="radNam">Nam</label>
+                <input type="radio" id="radNu" name="gioiTinh" value="Nữ">
+                <label for="radNu">Nữ</label>
+            </div>
+            <label for="" style="color: red;" class="col-5">*</label>
+        </div>
+        
+        <div class="row m-0 col-12 mx-auto pb-2 mt-2 border-bottom">
+            <label for="" class="col-3 text-end">Địa chỉ:</label>
+            <input type="text" placeholder="txtDC" id="txtDC" class="col-4">
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 border-bottom">
+            <label for="" class="col-3 text-end">Điện thoại:</label>
+            <input type="text" placeholder="txtDT" id="txtDT" class="col-4">
+            <label for="" style="color: red;" class="col-5">phải là số</label>
+            <p id="tbSDT" class="col-12 text-danger"></p> 
+        </div>
+        <div class="row m-0 col-12 mx-auto pb-2 border-bottom">
+            <label for="" class="col-3 text-end">Email:</label>
+            <input type="text" placeholder="txtEmail" id="txtEmail" class="col-4">
+            <label for="" style="color: red;" class="col-5">nhập đúng địa chỉ email</label>
+            <p id="tbEmail" class="col-12 text-danger"></p> 
+        </div>
+        <div class="row m-0 col-12 mx-auto py-2">
+            <div class="col-6 text-end">
+                <button id="btnRegister" class="btn btn-secondary btn-sm">Đăng ký</button>
+            </div>
+            <div class="col-6">
+                <button id="btnCancel" class="btn btn-secondary btn-sm">Hủy</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table{
+            margin-top: 20px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+        
+    </style>
+</head>
+<body>  
+    <img src="../img/banner.png" alt="">
+    <main>
+        <div class="container-fluid">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="col-1">STT</th>
+                            <th class="col-2">Mã chuyến bay</th>
+                            <th class="col-2">Tên khách hàng</th>
+                            <th class="col-2">Số lượng vé</th>
+                            <th class="col-2">Ngày khởi hành</th>
+                            <th class="col-3">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody class="veMB">
+                        
+                    </tbody>
+                </table>
+        </div>
+    </main>
+    <footer class="text-center">
+        <button type="button" class="btn btn-primary home">Home</button>
+        <button type="button" class="btn btn-primary book" data-toggle="modal" data-target="#myModal">Book a flight</button>
+
+
+        
+        <div class="modal" id="myModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title"><b>Đặt vé máy bay</b></h2>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body text-left">
+                            <form class="form">
+                                <div class="form-group maChuyenBay">
+                                    <label><b>Mã chuyến bay</b></label>
+                                    <input type="text" class="form-control maCB" placeholder="Nhập mã chuyến bay">
+                                    <p class="loiMaCB text-danger font-italic"></p>
+                                </div>
+                                <div class="form-group tenChuyenBay">
+                                    <label><b>Tên khách hàng</b></label>
+                                    <input type="text" class="form-control tenKH" placeholder="Nhập tên khách hàng">
+                                    <p class="loiTenKH text-danger font-italic"></p>
+                                </div>
+                                <div class="form-group soLuongVe">
+                                    <label><b>Số lượng vé</b></label>
+                                    <input type="number" class="form-control slVe" placeholder="Nhập số lượng vé">
+                                    <p class="loiSLVe text-danger font-italic"></p>
+                                </div>
+                                <div class="form-group ngayKhoiHanh">
+                                    <label><b>Ngày khởi hành</b></label>
+                                    <input type="date" class="form-control ngayKH">
+                                    <p class="loiNgayKH text-danger font-italic"></p>
+                                </div>
+                                <div class="form-group email">
+                                    <label><b>Email</b></label>
+                                    <input type="text" class="form-control em" placeholder="Nhập email">
+                                    <p class="loiEmail text-danger font-italic"></p>
+                                </div>
+                            </form>
+                            <button class="btn btn-primary submit" type="button">
+                                Submit
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </footer>
+</body>
+<script>
+    var btnSubmit = document.querySelector('.submit');
+    var inMaCB = document.querySelector('.maCB');
+    var inTenKH = document.querySelector('.tenKH');
+    var inSLVe = document.querySelector('.slVe');
+    var inNgayKH = document.querySelector('.ngayKH');
+    var inEmail = document.querySelector('.em');
+    var row = 0;
+    var checkMa = document.querySelector('.loiMaCB');
+    var checkTen = document.querySelector('.loiTenKH');
+    var checkSL = document.querySelector('.loiSLVe');
+    var checkNgay = document.querySelector('.loiNgayKH');
+    var checkEmail = document.querySelector('.loiEmail');
+btnSubmit.addEventListener('click',function(){
+    var rgMa = /^CB\d{3}$/g;
+    var rgTen = /^([a-z]|[A-Z])+(\s([a-z]|[A-Z])+)*$/g;
+    var rgEmail = /([a-z]|[A-Z])\w*@gmail.com/g;
+    if(!rgMa.test(inMaCB.value)){
+        checkMa.textContent = 'Mã chuyến bay phải có định dạng CB-XXX';
+    }else if(!rgTen.test(inTenKH.value)){
+        checkTen.textContent = 'Tên khách hàng chỉ chứa kí tự và có khoảng trắng';
+        checkMa.textContent = '';
+    }else if(inSLVe.value<=0){
+        checkSL.textContent = 'Số lượng vé phải là số nguyên lớn hơn 0';
+        checkTen.textContent = '';
+    }else if(Date.parse(inNgayKH.value) <= Date.now()){
+        checkNgay.textContent = 'Ngày khởi hành phải sau ngày hiện tại';
+        checkSL.textContent = '';
+    }else if(!rgEmail.test(inEmail.value)){
+        checkEmail.textContent = 'Email không đúng định dạng';
+        checkNgay.textContent = '';
+    }else{
+        checkEmail.textContent = '';
+        var html = `<tr>
+                            <td class="col-1">${row++}</td>
+                            <td class="col-2">${inMaCB.value}</td>
+                            <td class="col-2">${inTenKH.value}</td>
+                            <td class="col-2">${inSLVe.value}</td>
+                            <td class="col-2">${inNgayKH.value}</td>
+                            <td class="col-3">${inEmail.value}</td>
+                    </tr>`;
+        document.querySelector('.veMB').insertAdjacentHTML('beforeend',html);
+    }
+});
+</script>
+</html>

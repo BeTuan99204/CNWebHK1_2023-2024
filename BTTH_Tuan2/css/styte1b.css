@@ -1,0 +1,50 @@
+.wrapper {
+    border: 1px solid rgb(156, 135, 135);
+    width: 700px;
+    height: 525px;
+    padding-top: 0;
+    box-shadow: 0px -1px 5px;
+    margin: 0px auto;
+}
+.menu {
+    text-decoration: none;
+}
+.starter {
+    padding-left: 30px;
+  }
+  .header {
+    text-align: center;
+    font-style: italic;
+    color: rgb(158, 50, 50);
+  }
+#starter, #dessert {
+    width: 100%;
+    background-color: rgb(239, 227, 211);
+    color: rgb(187, 8, 8);
+}
+ins {
+    color: red;
+}
+.chiken {
+    color: rgb(210, 109, 64);
+    font-weight: bold;
+}
+.back-to-top{
+    color: red;
+    font-weight: bold;
+}
+.nav{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(235, 150, 150);
+    align-items: center;
+    justify-content: space-around;
+}
+.p {
+    color: blue;
+}
+.p a{
+    color: aliceblue;
+    text-decoration: none;
+}

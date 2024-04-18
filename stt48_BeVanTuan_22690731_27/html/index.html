@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+</head>
+<style>
+    [class*=col-] {
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    li {
+        width: 160px;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $("#btnOpen").click(function() {
+            $("#myModal").modal();
+        });
+
+        $("#txtMa").blur(function() {
+            let mauMa = /^[0-9]{10}$/;
+            let chuoiMa = $(this).val();
+            let kq = mauMa.test(chuoiMa);
+            if (kq == true) {
+                alert("Nhap dung");
+                $("#tbMa").text("Nhap dung mau");
+            } else {
+                alert("Nhap sai");
+                $("#tbMa").text("Nhap sai mau");
+            }
+        });
+
+        $("#txtHT").blur(function() {
+            let mauTen = /^[a-zA-Z\s]+$/;
+            let chuoiTen = $(this).val();
+            let kq = mauTen.test(chuoiTen);
+            if (kq == true) {
+                alert("Nhap dung");
+                $("#tbHT").text("Nhap dung mau");
+            } else {
+                alert("Nhap sai");
+                $("#tbHT").text("Nhap sai mau");
+            }
+        });
+    });
+</script>
+
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <img src="../img/logo.jpg" alt="" width="100%" height="100%">
+            </div>
+            <div class="col-md-8 col-12">
+                <img src="../img/anhheader.PNG" alt="" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <nav>
+                    <ul class="nav navbar-nav navbar-expand navbar-collapse nav-pills navbar-dark">
+                        <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link" id="btnOpen">SERVICES</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">ABOUT</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">HELP</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <h3>Danh sach</h3>
+                <table class="table table-bordered table-hover table-responsive table-info">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>MA SO SINH VIEN</th>
+                            <th>HO TEN</th>
+                            <th>NGAY SINH</th>
+                            <th>QUE QUAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>48</td>
+                            <td>22690731</td>
+                            <td>Be Van Tuan</td>
+                            <td>09/09/2004</td>
+                            <td>Dak Lak</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>22690712</td>
+                            <td>Nguyen Duc Dung</td>
+                            <td>08/05/2004</td>
+                            <td>Dak Lak</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-12">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Danh sach</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-md-8 col-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="lblMa">Ma Sinh Vien</label>
+                                            <input type="text" class="form-control" id="txtMa" aria-describedby="txtMa" placeholder="Nhap ma sinh vien">
+                                            <small id="tbMa" class="form-text text-muted">*</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lblHT">Ho Ten</label>
+                                            <input type="text" class="form-control" id="txtHT" aria-describedby="txtHT" placeholder="Nhap ho ten">
+                                            <small id="tbMa" class="form-text text-muted">*</small>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">update</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <img src="../img/h3.png" alt="" width="100%" height="50%">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

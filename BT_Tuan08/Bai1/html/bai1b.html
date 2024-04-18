@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        img{
+            height: 70%;
+            width: 60%;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+          
+            // Hàm kiểm tra hợp lệ của họ
+            $('#txtHo').blur(function() {
+                let hoRegex = /^[A-Z][a-z]+$/;
+                let ho = $('#txtHo').val();
+                let isValid = hoRegex.test(ho);
+                if (!isValid) {
+                    $('#txtHoError').text("Họ không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txtHoError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+          
+            // Hàm kiểm tra hợp lệ của tên
+            $('#txtTen').blur(function() {
+                let tenRegex = /^[A-Z][a-z]+$/;
+                let ten = $('#txtTen').val();
+                let isValid = tenRegex.test(ten);
+                if (!isValid) {
+                    $('#txtTenError').text("Tên không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txtTenError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            // Hàm kiểm tra hợp lệ của email
+            $('#txtEmail').blur(function() {
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let email = $('#txtEmail').val();
+                let isValid = emailRegex.test(email);
+                if (!isValid) {
+                    $('#txtEmailError').text("Email không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txtEmailError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            // Hàm kiểm tra sự khớp nhau của email nhập lại
+            $('#txtNLEmail').blur(function() {
+                let email = $('#txtEmail').val();
+                let nlemail = $('#txtNLEmail').val();
+                if (email !== nlemail) {
+                    $('#txtNLEmailError').text("Email không khớp").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txtNLEmailError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            // Hàm kiểm tra mật khẩu
+            $('#txMK').blur(function() {
+                let password = $('#txMK').val();
+                let hasNumber = /\d/.test(password);
+                let hasUpper = /[A-Z]/.test(password);
+                let isValid = password.length >= 6 && hasNumber && hasUpper;
+                if (!isValid) {
+                    $('#txMKError').text("Mật khẩu không hợp lệ").removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txMKError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+            // Hàm kiểm tra năm sinh
+            $('#txtNS').blur(function() {
+                let inputYear = $('#txtNS').val();
+                let currentYear = new Date().getFullYear();
+                if (parseInt(inputYear) >= 2002 || isNaN(inputYear)) {
+                    $('#txtNSError').text('Năm sinh không hợp lệ (phải nhỏ hơn 2002)').removeClass('text-success').addClass('text-danger');
+                } else {
+                    $('#txtNSError').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+    
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-color: #365899;">
+            <div class="col-5">
+                <h1 style="position: relative; top: 50px; color: white;">facebook</h1>
+            </div>
+            <div class="col-3" style="color: white; padding-left: 50px; padding-right: 50px;">
+                <label for="email_sdt">Email Hoặc Điện Thoại</label><br>
+                <input type="text" id="email_sdt"><br>
+                <p class="error" id="loi_email_sdt"></p>
+                <span>
+                    <input type="checkbox" name="" id="">
+                    <p style="color: white; display: inline;">Đăng Ký Tại Đây</p>
+                </span>
+            </div>
+            <div class="col-2" style="color: white;">
+                <label for="mk0">Mật khẩu</label><br>
+                <input type="password" id="mk0"><br>
+                <p class="error" id="loi_mk0"></p>
+                <p style="color: white;">Quên Mật Khẩu?</p>
+            </div>
+            <div class="col-2" style="color: white;">
+                <button id="dangnhap" class="mt-4 p-1">đăng nhập</button>
+            </div>
+        </div>
+    </div>
+        
+        
+        <div class="row" >
+            <div class="col-5" style="background-color: rgb(224, 231, 247);">
+                <img src="../image/1b.png" alt="">
+                <h1>cảm ơn bạn đã ghé thăm</h1>
+                <br>
+                <br>
+                <h3>chúng tôi mong sẽ sớm gặp lại bạn</h3>
+            </div>
+            <div class="col-7" style="background-color:  rgb(224, 231, 247);">
+                <form action="">
+                    <h1>ĐĂNG KÝ</h1>
+                    <h3>miễn phí và sẽ luôn như vậy</h3>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <input type="text" id="txtHo" placeholder="Họ" class="form-control">
+                                <p class="error" id="txtHoError"></p>
+                            </td>
+                            <td>
+                                <input type="text" id="txtTen" placeholder="Tên" class="form-control">
+                                <p class="error" id="txtTenError"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="email" id="txtEmail" placeholder="Email đăng nhập" class="form-control">
+                                <p class="error" id="txtEmailError"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="email" id="txtNLEmail" placeholder="Nhập lại email" class="form-control">
+                                <p class="error" id="txtNLEmailError"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="password" id="txMK" placeholder="Mật khẩu" class="form-control">
+                                <p class="error" id="txMKError"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="text" id="txtNS" placeholder="Năm sinh" class="form-control">
+                                <p class="error" id="txtNSError"></p>
+                                <button class="btn btn-success">ĐĂNG KÍ</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+       </div>
+</body>
+</html>

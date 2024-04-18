@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <script src="../JS/jquery-3.7.1.min.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+
+    <style>
+        [input*=col-]{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        li {
+            padding-left: 20px;
+            width: 100px;
+        }
+        p{
+            color: aliceblue;
+        }
+    </style>
+
+   <script>
+    $(document).ready(function() {
+    $("#btnOpen").click(function() {
+        $("#myModal").modal();
+    });
+
+    
+    $('#txtten').blur(function() {
+                let mauhoten = /^(?=.*[A-Z])[A-Z][a-z]*(\s[A-Z][a-z]*)*$/;
+                let chuoihoten = $('#txtten').val();
+                let kq = mauhoten.test(chuoihoten);
+                if (kq) {
+                    $('#tbten').text("Nhập đúng mẫu họ tên").removeClass('text-danger').addClass('text-success');
+                } else {
+                    $('#tbten').text("Họ tên không được rỗng, ký tự đầu của mỗi từ là chữ hoa (vd: Lê Văn An)").removeClass('text-success').addClass('text-danger');
+                }
+            });
+
+            $('#txtSDT').blur(function() {
+                let mausdt = /^(09|03|08)\d{8}$/;
+                let chuoisdt = $('#txtSDT').val();
+                let kq = mausdt.test(chuoisdt);
+                if (kq) {
+                    $('#tbSDT').text("Nhập đúng mẫu số điện thoại").removeClass('text-danger').addClass('text-success');
+                } else {
+                    $('#tbSDT').text("Số điện thoại không được rỗng, có định dạng 10 số, được bắt đầu với 09,03,08 ").removeClass('text-success').addClass('text-danger');
+                }
+            });
+
+            $('#lblNS').on('change', function() {
+                var inputDate = new Date($(this).val());
+                var today = new Date();
+            if (inputDate >= today) {
+                 $('#NS').text('Ngày sinh phải trước ngày hiện tại').removeClass('text-success').addClass('text-danger');
+                $(this).val('');
+            } else {
+                $('#NS').text('').removeClass('text-danger').addClass('text-success');
+            }
+            });
+
+
+            $("#inputKH").change(function() {
+             var selectedOption = $(this).val();
+             var thoiGianHoc = "";
+            if (selectedOption === "Anh văn cơ bản") {
+                 thoiGianHoc = "3 tháng";
+            } else if (selectedOption === "Anh văn giao tiếp") {
+                thoiGianHoc = "6 tháng";
+            } else if (selectedOption === "Luyện thi IELTS") {
+                  thoiGianHoc = "12 tháng";
+            }
+            $("#thoiGianHoc").val(thoiGianHoc);
+
+
+            function isAnyOptionChecked(groupName) {
+            return $('input[name="' + groupName + '"]:checked').length > 0;
+        }
+
+       
+         $('#email').on('change', function() {
+        // Lấy giá trị của email
+        var email = $(this).val();
+        
+        // Biểu thức chính quy kiểm tra email phải chứa '@' và kết thúc bằng '.com'
+        var emailPattern = /^[^\s@]+@([^\s@]+\.)+com$/;
+        
+        // Kiểm tra biểu thức chính quy
+        if (!emailPattern.test(email)) {
+            // Nếu email không hợp lệ, hiển thị thông báo lỗi
+            $('#tbEmail').text('Email phải chứa ký tự @ và kết thúc bằng .com').addClass('text-danger');
+            $(this).val('');
+        } else {
+            // Nếu email hợp lệ, xóa thông báo lỗi
+            $('#tbEmail').text('').removeClass('text-danger');
+        }
+        });
+
+        
+        // Sự kiện 'change' cho nhóm "hinh_thuc_hoc" và "ky_nang_luyen_tap"
+        $('input[name="hinh_thuc_hoc"], input[name="ky_nang_luyen_tap"]').on('change', function() {
+            // Kiểm tra "hình thức học"
+            if (!isAnyOptionChecked('hinh_thuc_hoc')) {
+                $('#hinhThucHocError').text('Vui lòng chọn ít nhất một hình thức học').addClass('text-danger');
+            } else {
+                $('#hinhThucHocError').text('').removeClass('text-danger');
+            }
+
+            // Kiểm tra "các kỹ năng luyện tập"
+            if (!isAnyOptionChecked('ky_nang_luyen_tap')) {
+                $('#kyNangLuyenTapError').text('Vui lòng chọn ít nhất một kỹ năng luyện tập').addClass('text-danger');
+            } else {
+                $('#kyNangLuyenTapError').text('').removeClass('text-danger');
+            }
+            });
+
+            });
+
+            $('.btn-success').click(function() {
+        // Kiểm tra xem thông tin nhập vào form có đáp ứng các ràng buộc không
+        let valid = true;
+
+        // Kiểm tra các trường form (bạn có thể bổ sung thêm các kiểm tra khác)
+        if ($('#txtten').val().trim() === '') {
+            valid = false;
+            alert('Vui lòng nhập họ tên');
+        }
+
+        if ($('#txtSDT').val().trim() === '') {
+            valid = false;
+            alert('Vui lòng nhập số điện thoại');
+        }
+
+        if ($('#email').val().trim() === '') {
+            valid = false;
+            alert('Vui lòng nhập email');
+        }
+
+        // Nếu thông tin hợp lệ, thêm vào bảng
+        if (valid) {
+            // Lấy thông tin từ form
+            let hoTen = $('#txtten').val();
+            let ngaySinh = $('#lblNS').val();
+            let sdt = $('#txtSDT').val();
+            let email = $('#email').val();
+            let khoaHoc = $('#inputKH').val();
+            let hinhThucHoc = $('input[name="hinh_thuc_hoc"]:checked').val();
+            let kyNangLuyenTap = $('input[name="ky_nang_luyen_tap"]:checked').map(function() {
+                return $(this).val();
+            }).get().join(', ');
+
+            // Tìm số thứ tự hiện tại trong bảng
+            let soTT = $('.VeDK tr').length + 1;
+
+            // Tạo hàng mới cho bảng
+            let newRow = `
+                <tr>
+                    <td>${soTT}</td>
+                    <td>${hoTen}</td>
+                    <td>${ngaySinh}</td>
+                    <td>${sdt}</td>
+                    <td>${email}</td>
+                    <td>${khoaHoc}</td>
+                    <td>${hinhThucHoc}</td>
+                    <td>${kyNangLuyenTap}</td>
+                </tr>
+            `;
+
+            // Thêm hàng mới vào bảng
+            $('.VeDK').append(newRow);
+
+            // Đóng modal form
+            $('#myModal').modal('hide');
+        }
+        });
+
+    // Sự kiện khi nhấn nút Hủy
+        $('.btn-danger').click(function() {
+        // Đóng form modal
+        $('#myModal').modal('hide');
+            });
+    });
+
+   </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <img src="../INMAGE/header.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="nav navbar-nav navbar-expand navbar-collapse nav-pills navbar-dark">
+                <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Giới thiệu</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Khoá học</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" id="btnOpen">Đăng kí</a></li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <table class="table table-bordered">
+                    <h4>DANH SÁCH HỌC VIÊN ĐĂNG KÝ</h4>
+                    <thead>
+                        <tr>
+                            <th>Số tt</th>
+                            <th>Họ tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Điện thoại</th>
+                            <th>Email</th>
+                            <th>Khoá học</th>
+                            <th>Hình thức học</th>
+                            <th>Kỹ năng cần luyện</th>
+                        </tr>
+                    </thead>
+                    <tbody class="VeDK"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-12">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>THÔNG TIN ĐĂNG KÍ</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="lblten">Họ tên</label>
+                                            <input type="text" class="form-control" id="txtten" aria-describedby="lblten" placeholder="">
+                                            <small id="tbten" class="form-text text-muted">*</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lblNS">Ngày sinh</label>
+                                        <input type="date" class="form-control" id="lblNS" aria-describedby="lblNS" placeholder="">
+                                        <small id="NS" class="form-text text-muted">*</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lblSDT">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="txtSDT" aria-describedby="lblSDT" placeholder="">
+                                        <small id="tbSDT" class="form-text text-muted">*</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lblEmail">Email</label>
+                                        <input type="text" class="form-control" id="email" aria-describedby="lblEmail" placeholder="">
+                                        <small id="tbEmail" class="form-text text-muted">*</small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputKH">Chọn khoá học</label>
+                                        <select id="inputKH" class="form-control">
+                                          <option selected>Anh văn cơ bản</option>
+                                          <option>Anh văn giao tiếp</option>
+                                          <option>Luyện thi IELTS</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="thoiGianHoc">Thời gian học:</label>
+                                        <input type="text" id="thoiGianHoc" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Chọn hình thức học</label><br>
+                                        <input type="radio" id="httt" name="hinh_thuc_hoc" value="Học tại trung tâm">
+                                        <label for="httt">Học tại trung tâm</label><br>
+                                        <input type="radio" id="hol" name="hinh_thuc_hoc" value="Học online">
+                                        <label for="hol">Học Online</label>
+                                        <div id="hinhThucHocError" class="text-danger"></div> <!-- Để hiển thị thông báo lỗi -->
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="">Các kỹ năng luyện tập</label><br>
+                                        <input type="checkbox" id="kne" name="ky_nang_luyen_tap" value="Kỹ năng nghe">
+                                        <label for="kne">Kỹ năng nghe</label><br>
+                                        <input type="checkbox" id="knd" name="ky_nang_luyen_tap" value="Kỹ năng đọc">
+                                        <label for="knd">Kỹ năng đọc</label><br>
+                                        <input type="checkbox" id="hnv" name="ky_nang_luyen_tap" value="Kỹ năng viết">
+                                        <label for="hnv">Kỹ năng viết</label>
+                                        <div id="kyNangLuyenTapError" class="text-danger"></div> <!-- Để hiển thị thông báo lỗi -->
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">Đăng ký</button>  
+                                <button type="button" class="btn btn-danger">huỷ</button>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12 " style="background-color: blue;text-align: center;">
+                <p>Thông tin sinh viên</p>
+                <p>Họ tên: Bế Văn Tuấn <br>
+                    Mã sinh viên: 22690731 <br>
+                    Mã lớp: DHKTPM18c
+                </p>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

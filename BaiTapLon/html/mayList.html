@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máy cơ khí</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/mayList.css">
+  <link rel="icon" type="" href="../img/logoo.png">
+  <link rel="stylesheet" href="../js/timkiem.js">
+</head>
+
+<body>
+  <div class="header">
+    <div class="inner-logo">
+      <a href="home.html"><img src="../img/logoo.png" alt=""></a>
+    </div>
+    <div class="inner-menu">
+      <ul class="inner-list">
+        <li><a href="home.html">TRANG CHỦ</a></li>
+        <li><a href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions">SẢN PHẨM</a></li>
+        <li><a href="aboutUs.html">GIỚI THIỆU</a></li>
+        <li><a href="contact.html">LIÊN HỆ</a></li>
+      </ul>
+    </div>
+
+    <div class="inner-search">
+      <input type="text" placeholder="Tìm kiếm" id="searchInput">
+      <button class="search-btn" id="searchButton">Tìm kiếm</button>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item user" href="login.html">Log
+              In</a></li>
+
+          <li><a class="dropdown-item user" href="signup.html">Sign
+              Up</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Danh sách sản phẩm</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-group ctg">
+        <li class="list-group-item"><a href="mayList.html">Máy cơ khí</a></li>
+        <li class="list-group-item"><a href="phuKien.html">Phụ kiện máy</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="body-cars">
+
+    <div class="gioithieu ms-5">
+      <div class="display-4 mt-3">Mua và xem thông tin máy cơ khí</div>
+      <div class="mt-2 mb-3"><i class="bg-primary rounded-circle text-white p-1 fa-solid fa-check"></i> Xem máy cơ khí có sẵn toàn quốc <i class="ms-3 bg-primary rounded-circle text-white p-1 fa-solid fa-check"></i> Tiết kiệm thời gian mua máy</div>
+    </div>
+
+    <div class="content">
+      <div class="cate">
+        <div class="list-group list-group-flush">
+          <a href="carList.html" class="list-group-item list-group-item-action active" aria-current="true">
+            <strong>Máy cơ khí</strong>
+          </a>
+          <a href="phuKien.html" class="list-group-item list-group-item-action"><strong>Phụ kiện máy</strong></a>
+        </div>
+      </div>
+  
+      <div class="cars mb-5">
+  
+        <div class="row mt-2">
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_1.html"><img class="img-fluid p-5" src="../img/Mitsuhata_Machinery_M-006.jpg" alt="Máy tiện bàn Mitsuhata Machinery M-006"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy tiện bàn Mitsuhata Machinery M-006</div>
+                <div class="mt-3 card-subtitle">
+                  
+                  <p>Mã sản phẩm: UM-15</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">374,544,000 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Máy Móc Cơ Khí, Máy Công Cụ - Công Ty TNHH Giải Pháp Và Thiết Bị Hi-Tech</strong> <br>
+                    Phòng 11-07B Lê Thành Twin Towers, 198A Mã Lò, Khu Phố 6, Phường Bình Trị Đông A, Quận Bình Tân, Tp. Hồ Chí Minh, Việt Nam
+                  </p>
+                  <a href="may_1.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3  ">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_3.html"><img class="img-fluid p-5" src="../img/tien2.jpg" alt="Máy tiện để bàn 0 - 3800Rpm AS ONE 2-9517-01 Compact3"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy tiện để bàn 0 - 3800Rpm AS ONE 2-9517-01 Compact3</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-35007</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">33,696,000  &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Cơ Khí Chế Tạo T.T.MEC - Công Ty TNHH Cơ Khí & Chế Tạo Máy T.T.MEC</strong> <br>
+                    Thôn Túy Loan Đông 2, X. Hòa Phong, H. Hòa Vang, Tp. Đà Nẵng, Việt Nam</p>
+                  <a href="may_3.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col p-2">
+            <div class="card">
+              <a href="may_4.html"><img class="img-fluid p-5" src="../img/tien3.jpg" alt="Máy tiện để bàn 100 - 2000Rpm AS ONE 2-9517-02 Compact7"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3 mt-3">Máy tiện để bàn 100 - 2000Rpm AS ONE 2-9517-02 Compact7</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-35008</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">45,360,000 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Máy Cơ Khí Thịnh Qua - Công Ty TNHH MTV Thương Mại Dịch Vụ Thịnh Qua</strong> <br>
+                    Số 21/1 KP. Bình Phước B, P. Bình Chuẩn, TP. Thuận An, Bình Dương, Việt Nam <br> 700000</p>
+                  <a href="may_4.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+  
+        </div>
+  
+        <div class="row mt-2 g-5">
+          
+          <div class="col p-2">
+            <div class="card">
+              <a href="may_2.html"><img class="img-fluid p-5" src="../img/AS_ONE_2-9518-01.jpg" alt="Máy phay AS ONE 2-9518-01 LittleMilling1"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy phay AS ONE 2-9518-01 LittleMilling1</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-35017</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">45,360,000  &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Máy Móc Cơ Khí AUTOWEL VINA - Công Ty TNHH AUTOWEL VINA</strong> <br>
+                    Xưởng Số 9, Đường Số 9, Phường Tam Phước, TP. Biên Hòa, Đồng Nai, Việt Nam</p>
+                  <a href="may_2.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_5.html"><img class="img-fluid p-5" src="../img/duoi2.jpg" alt="Máy khoan bàn Koki Holdings B23RH-200V"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy khoan bàn Koki Holdings B23RH-200V</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-62521</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">142,487,100 &#8363;</p>
+                  <p class="bg-secondary-subtle p-1 rounded-pill"><i class="fa-solid fa-check"></i> SẢN PHẨM NGỪNG SẢN XUẤT</p> 
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Công Ty TNHH Hy Viễn</strong> <br>
+                    Lô A45, CCN Diên Phú, X. Diên Phú, H. Diên Khánh, Khánh Hòa, Việt Nam</p>
+                  <a href="may_5.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col p-2">
+            <div class="card">
+              <a href="may_6.html"><img class="img-fluid p-5" src="../img/tien4.jpg" alt="Máy phay để bàn Mitsuhata Machinery M-250"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3 mt-1">Máy phay để bàn Mitsuhata Machinery M-250</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-35026</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">399,330,000 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Cơ Khí Sunghwa Precision - Công Ty TNHH Sunghwa Precision Việt Nam</strong> <br>
+                    Thôn Nghĩa Giang, X. Toàn Thắng, H. Kim Động, Hưng Yên, Việt Nam <br> 700000</p>
+                  <a href="may_6.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="row mt-2 g-5">
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_7.html"><img class="img-fluid p-5" src="../img/cat1.jpg" alt="Máy cắt ren ống (15A～25A (1/2B～1B)) ASADA BE25B"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy cắt ren ống (15A～25A (1/2B～1B)) ASADA BE25B</div>
+                <div class="mt-3 card-subtitle">
+                  <p>
+                    Mã sản phẩm: 111-58720</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">63,291,456 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Công Ty TNHH J&Y Electronic Việt Nam</strong> <br>
+                    Lô D1 - D2 KCN Đình Trám, Thị Trấn Nếnh, H. Việt Yên, Bắc Giang, Việt Nam</p>
+                  <a href="may_7.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col p-2">
+            <div class="card">
+              <a href="may_8.html"><img class="img-fluid p-5" src="../img/cat2.jpg" alt="Máy cắt ren ống (15A～50A (1/2B～2B)) ASADA BE5AT"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy cắt ren ống (15A～50A (1/2B～2B)) ASADA BE5AT</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm: 111-58721</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">106,652,700 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>
+                    Máy Móc Cơ Khí AUTOWEL VINA - Công Ty TNHH AUTOWEL VINA</strong> <br>
+                    Xưởng Số 9, Đường Số 9, Phường Tam Phước, TP. Biên Hòa, Đồng Nai, Việt Nam</p>
+                  <a href="may_8.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_9.html"><img class="img-fluid p-5 mb-2" src="../img/cat3.jpg" alt="Máy cắt ren ống (15A～80A (1/2B～3B)) ASADA BE8AT"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3 mt-5 mb-4">Máy cắt ren ống (15A～80A (1/2B～3B)) ASADA BE8AT</div>
+                <div class="mt-3 card-subtitle">
+                  <p> Mã sản phẩm: 111-58722</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">135,739,800 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Chi Nhánh Hà Nội - Công Ty TNHH Xây Lắp Điện Cường Thịnh</strong> <br>
+                    Số Nhà 14, Ngõ 250 Nguyễn Xiển, P. Hạ Đình, Q. Thanh Xuân, Hà Nội, Việt Nam</p>
+                  <a href="may_9.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+        <div class="row mt-2 g-5">
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_10.html"><img class="img-fluid p-5" src="../img/cat4.jpg" alt="Máy cắt ren (PT1/4 - 2inch) ROTHENBERGER ST504"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy cắt ren (PT1/4 - 2inch) ROTHENBERGER ST504</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm:
+                    111-58723</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">78,912,144 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Vietnam Star Phú Mỹ Hưng</strong> <br>
+                    811-813 Đường Nguyễn Văn Linh, Phường Tân Phong, TP. Hồ Chí Minh 700000</p>
+                  <a href="may_10.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col p-2">
+            <div class="card">
+              <a href="may_11.html"><img class="img-fluid p-5" src="../img/cat5.jpg" alt="Máy cắt ống (350W, 740 x 390 x 330mm) ASADA BB40F"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3">Máy cắt ống (350W, 740 x 390 x 330mm) ASADA BB40F</div>
+                <div class="mt-3 card-subtitle">
+                  <p>Mã sản phẩm:
+                    111-58742</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">45,515,844 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Vietnam Star Đài Tư</strong> <br>
+                    Khu Công Ngiệp Hà Nội - Đài Tư, Phường Phúc Lợi, Quận Long Biên D5-1 Hà Nội 100000</p>
+                  <a href="may_11.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col p-2 me-2">
+            <div class="card">
+              <a href="may_12.html"><img class="img-fluid p-5 mb-2" src="../img/cat6.jpg" alt="Máy cắt ống (góc cắt 90o, 350W, 740 x 390 x 330mm) ASADA BB400"></a>
+              <div class="card-body text-center">
+                <div class="card-title fw-bold fs-3 mt-5 mb-4">Máy cắt ống (góc cắt 90o, 350W, 740 x 390 x 330mm) ASADA BB400</div>
+                <div class="mt-3 card-subtitle">
+                  <p>
+                    Mã sản phẩm:
+                    111-58743</p>
+                  <p class="mt-4 p-3 bg-secondary-subtle fw-bold">42,822,756 &#8363;</p>
+                  <p class="mt-4 p-1 bg-secondary-subtle"><strong><i class="fa-solid fa-location-dot"></i>Vietnam Star Phú Mỹ Hưng</strong> <br>
+                    811-813 Đường Nguyễn Văn Linh, Phường Tân Phong, TP. Hồ Chí Minh 700000</p>
+                  <a href="may_12.html" class="mt-3 btn btn-outline-secondary fw-bold w-100 p-3">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="row">
+      <div class="col">
+        <div class="iframe">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.85816909105!2d106.68427047451765!3d10.822164158349457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1710643091282!5m2!1svi!2s"
+            width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="col sub">
+        <h3>Watch our newest mechanical machines</h3>
+        <button>SUBCRIBE</button>
+        <div class="inner-list">
+          <h3>Follow us on</h3>
+          <div class="list">
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+            <a style="color: #DD466A;" href="http://https://www.instagram.com"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a style="color: rgb(137, 137, 137);" href="https://github.com/BeTuan99204"><i
+                class="fa-brands fa-github"></i></a>
+            <a style="color: red;" href="https://www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col app">
+        <h3>Application</h3>
+        <br>
+        <img style="margin-bottom: 20px;" src="../img/download-on-appstore.png" alt="">
+        <br>
+        <img src="../img/download-on-ggplay.png" alt="">
+      </div>
+      <div class="col about">
+        <h3>About</h3>
+        <br>
+        <span>Our story</span>
+        <br>
+        <span>FAQs</span>
+        <br>
+        <span>Advertise</span>
+      </div>
+      <div class="col terms">
+        <h3>Terms & Privacy</h3>
+        <br>
+        <span>Pricacy</span>
+        <br>
+        <span>Terms</span>
+        <br>
+        <span>Sitemap</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

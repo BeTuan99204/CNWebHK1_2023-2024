@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        [class*=col-] {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        li {
+            padding-left: 30px;
+            width: 100px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#btnOpen").click(function() {
+                $("#myModal").modal();
+            });
+
+            $('#txtten').blur(function() {
+                let mauhoten = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+                let chuoihoten = $('#txtten').val();
+                let kq = mauhoten.test(chuoihoten);
+                if (kq) {
+                    $('#tbten').text("Nhập đúng mẫu họ tên").removeClass('text-danger').addClass('text-success');
+                } else {
+                    $('#tbten').text("Họ tên không được bỏ trống, và phải theo định dạng: Họ và Tên (viết hoa chữ cái đầu tiên)").removeClass('text-success').addClass('text-danger');
+                }
+            });
+
+            $('#txtSDT').blur(function() {
+                let mausdt = /^0909-\d{3}-\d{3}$/;
+                let chuoisdt = $('#txtSDT').val();
+                let kq = mausdt.test(chuoisdt);
+                if (kq) {
+                    $('#tbSDT').text("Nhập đúng mẫu số điện thoại").removeClass('text-danger').addClass('text-success');
+                } else {
+                    $('#tbSDT').text("Số điện thoại không rỗng, nhập theo định dạng sau: 0909-YYY-YYY").removeClass('text-success').addClass('text-danger');
+                }
+            });
+
+            $('#lblNS').on('change', function() {
+                var inputDate = new Date($(this).val());
+                var today = new Date();
+                var age = today.getFullYear() - inputDate.getFullYear();
+                var m = today.getMonth() - inputDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < inputDate.getDate())) {
+                    age--;
+                }
+                if (age < 15) {
+                    $('#NS').text('Ngày sinh không hợp lệ (tuổi phải trên 15)').removeClass('text-success').addClass('text-danger');
+                    $(this).val('');
+                } else {
+                    $('#NS').text('').removeClass('text-danger').addClass('text-success');
+                }
+            });
+
+            $("#inputKH").change(function() {
+                var selectedOption = $(this).val();
+                var tuitionFee = 0;
+                if (selectedOption === "Khóa 1 tuần") {
+                    tuitionFee = 5000000;
+                } else if (selectedOption === "Khóa 2 tuần") {
+                    tuitionFee = 8000000;
+                } else if (selectedOption === "Khóa 3 tuần") {
+                    tuitionFee = 9000000;
+                }
+                $("#tuitionFee").val(tuitionFee.toLocaleString('vi-VN') + " VND");
+            });
+
+            // Xử lý sự kiện khi người dùng click nút "Lưu"
+            $(".btn-success").click(function() {
+                // Lấy thông tin từ các ô input trên modal
+                var ten = $("#txtten").val();
+                var sdt = $("#txtSDT").val();
+                var ngaysinh = $("#lblNS").val();
+                var diachi = $("#txtlDC").val();
+                var khoahoc = $("#inputKH").val();
+                var phihoc = $("#tuitionFee").val();
+
+                // Kiểm tra xem đã nhập đủ thông tin chưa
+                if (ten == "" || sdt == "" || ngaysinh == "" || diachi == "" || khoahoc == "" || phihoc == "") {
+                    alert("Vui lòng nhập đủ thông tin!");
+                    return;
+                }
+
+                // Tạo một hàng mới trong bảng "DANH SÁCH HỌC VIÊN ĐĂNG KÝ"
+                var newRow = "<tr><td>" + (index + 1) + "</td><td>" + ten + "</td><td>" + sdt + "</td><td>" + ngaysinh + "</td><td>" + diachi + "</td><td>" + khoahoc + "</td><td>" + phihoc + "</td></tr>";
+                $("#studentTable tbody").append(newRow);
+
+                // Đóng modal
+                $("#myModal").modal("hide");
+
+                // Reset các ô input
+                $("#txtten").val("");
+                $("#txtSDT").val("");
+                $("#lblNS").val("");
+                $("#txtlDC").val("");
+                $("#inputKH").val("Khóa 2 tuần");
+                $("#tuitionFee").val("");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <img src="../img/header.PNG" alt="" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="nav navbar-nav navbar-expand navbar-collapse nav-pills navbar-dark">
+                <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" id="btnOpen">Đăng kí</a></li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <h4 style="text-align: center;">DANH SÁCH HỌC VIÊN ĐĂNG KÝ</h4>
+                <table class="table" id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>Khóa học</th>
+                            <th>Phí học</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Hoàng Lâm</td>
+                            <td>Nam</td>
+                            <td>090008888</td>
+                            <td>20/03/2010</td>
+                            <td>123 Nguyễn Du P5 Gò Vấp TPHCM</td>
+                            <td>6 tuần</td>
+                            <td>8,000,000 VND</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-12">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">THÔNG TIN HỌC VIÊN</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-md-8 col-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="lblten">Họ và tên</label>
+                                            <input type="text" class="form-control" id="txtten" aria-describedby="lblten" placeholder="">
+                                            <small id="tbten" class="form-text text-muted">*</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lblSDT">Số điện thoại</label>
+                                            <input type="text" class="form-control" id="txtSDT" aria-describedby="lblSDT" placeholder="">
+                                            <small id="tbSDT" class="form-text text-muted">*</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lblNS">Ngày sinh</label>
+                                            <input type="date" class="form-control" id="lblNS" aria-describedby="lblNS" placeholder="">
+                                            <small id="NS" class="form-text text-muted">*</small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lblDC">Địa chỉ</label>
+                                            <input type="text" class="form-control" id="txtlDC" aria-describedby="lblDC" placeholder="">
+                                            <small id="tdDC" class="form-text text-muted"></small>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputKH">Bạn muốn tham gia khóa học nào?</label>
+                                            <select id="inputKH" class="form-control">
+                                              <option selected>Khóa 2 tuần</option>
+                                              <option>Khóa 1 tuần</option>
+                                              <option>Khóa 3 tuần</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tuitionFee">Phí học:</label>
+                                            <input type="text" id="tuitionFee" class="form-control" readonly>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success">Lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

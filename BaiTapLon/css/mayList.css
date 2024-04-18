@@ -1,0 +1,16 @@
+.card a {
+  text-decoration: none;
+}
+
+.content {
+ display: flex;
+}
+
+.cate {
+  width: 25%;
+  padding: 80px;
+}
+
+.cars {
+  width: 75%;
+}
